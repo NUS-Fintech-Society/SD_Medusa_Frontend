@@ -1,5 +1,5 @@
-import React from 'react';
-import { IconType } from 'react-icons';
+import React from "react";
+import { IconType } from "react-icons";
 
 interface AuthSocialButtonProps {
   icon: IconType;
