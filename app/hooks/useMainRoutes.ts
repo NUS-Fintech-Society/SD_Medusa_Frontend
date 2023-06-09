@@ -1,10 +1,9 @@
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
-import { HiChat } from 'react-icons/hi';
 import { HiArrowLeftOnRectangle, HiUsers } from 'react-icons/hi2';
-import { GiMedusaHead } from 'react-icons/gi'
+import { GiMedusaHead } from 'react-icons/gi';
 
-const useRoutes = () => {
+const useMainRoutes = () => {
     const pathname = usePathname();
     
     const routes = useMemo(() => [
@@ -12,13 +11,13 @@ const useRoutes = () => {
             label: 'Projects',
             href: '/projects',
             icon: GiMedusaHead,
-            active: pathname === '/projects'
+            active: pathname.includes('/projects')
         },
         {
             label: 'Profile',
             href: '/profile',
             icon: HiUsers,
-            active: pathname === '/users'
+            active: pathname === '/profile'
         },
         {
             label: 'Logout',
@@ -32,4 +31,4 @@ const useRoutes = () => {
     return routes
 }
 
-export default useRoutes;
+export default useMainRoutes;

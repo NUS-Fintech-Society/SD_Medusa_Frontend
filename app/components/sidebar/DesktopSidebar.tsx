@@ -1,11 +1,11 @@
 'use client';
 
-import useRoutes from "@/app/hooks/useRoutes";
+import useMainRoutes from "@/app/hooks/useMainRoutes";
 
 import DesktopItem from "./DesktopItem";
 
 const DesktopSidebar = () => {
-    const routes = useRoutes();
+    const routes = useMainRoutes();
     // const [isOpen, setIsOpen] = useState(false);
     
     return (

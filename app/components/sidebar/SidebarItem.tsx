@@ -4,29 +4,21 @@ import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 
-interface DesktopItemProps {
+interface SidebarItemProps {
     label: string;
     icon: any;
     href: string;
-    onClick?: () => void;
     active?: boolean;
 }
 
-const DesktopItem: React.FC<DesktopItemProps> = ({
+const SidebarItem: React.FC<SidebarItemProps> = ({
     label,
     icon: Icon,
     href,
-    onClick,
     active
 }) => {
-    const handleClick = () => {
-        if (onClick) {
-            return onClick()
-        }
-    };
-
     return (
-        <li onClick={handleClick}>
+        <li>
             <Link 
                 href={href}
                 className={clsx(`
@@ -54,10 +46,10 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
                         active && 'text-black'
                     )}
                 />
-                <span className="sr-only">{label}</span>
+                <span>{label}</span>
             </Link>
         </li>
     )
 }
 
-export default DesktopItem;
+export default SidebarItem;
