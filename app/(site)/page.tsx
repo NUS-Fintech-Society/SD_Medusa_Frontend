@@ -24,7 +24,7 @@ export default function Home() {
           className="
             mt-6
             text-center
-            text-3xl
+            text-h1-s
             font-bold
             tracking-tight
             text-gray-900
