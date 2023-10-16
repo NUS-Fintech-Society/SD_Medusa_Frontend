@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Button from "../components/inputs/Button";
 import ButtonTabs from "../components/inputs/Tabs";
+import Feedback from "../components/feedback/Feedback";
+import NoData from "../components/no-data/NoData";
 
 export default function Home() {
   const data = [
@@ -187,6 +189,56 @@ export default function Home() {
           </h2>
           <div className="flex justify-center">
             <ButtonTabs data={data} />
+          </div>
+
+          <div className="flex flex-col space-y-5 justify-center">
+            <h2
+              className="
+            text-center
+            text-h1-s
+            font-bold
+            text-gray-900
+            my-10
+          "
+            >
+              Feedback
+            </h2>
+            <Feedback
+              type="success"
+              heading="Success Heading"
+              text="This is a success text!"
+            />
+            <Feedback
+              type="error"
+              heading="Error Heading"
+              text="This is a failure text!"
+            />
+            <Feedback
+              type="info"
+              heading="Information Heading"
+              text="This is a information text!"
+            />
+            <Feedback
+              type="warning"
+              heading="Warning Heading"
+              text="This is a warning text!"
+            />
+          </div>
+
+          <div className="flex flex-col space-y-5 justify-center">
+            <h2
+              className="
+            text-center
+            text-h1-s
+            font-bold
+            text-gray-900
+            my-10
+          "
+            >
+              No Data Blocks
+            </h2>
+            <NoData />
+            <NoData col />
           </div>
         </div>
       </div>
