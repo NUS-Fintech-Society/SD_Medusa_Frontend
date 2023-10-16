@@ -22,16 +22,16 @@ const Feedback: React.FC<FeedbackProps> = ({ type, heading, text }) => {
   let color;
   let icon;
   if (type === "success") {
-    color = "bg-[#ECFAEC]";
+    color = "fdbk-green";
     icon = <BsCheck2Circle size={40} />;
   } else if (type === "error") {
-    color = "bg-[#FFEEEE]";
+    color = "fdbk-red";
     icon = <RxCrossCircled size={40} />;
   } else if (type === "info") {
-    color = "bg-[#E8F8FD]";
+    color = "fdbk-blue";
     icon = <AiOutlineInfoCircle size={40} />;
   } else {
-    color = "bg-[#EEF1FF]";
+    color = "fdbk-purple";
     icon = <IoWarningOutline size={40} />;
   }
   return (
