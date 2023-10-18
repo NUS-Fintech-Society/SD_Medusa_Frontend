@@ -13,7 +13,7 @@ const NoData: React.FC<NoDataProps> = ({ col, heading, text }) => {
         col ? "flex-row h-[35em]" : "flex-col"
       }`}
     >
-      <div className="bg-gray-300 flex justify-center items-center h-full w-full">
+      <div className="bg-[#D9D9D9] flex justify-center items-center h-full w-full">
         Image
         {/* <img className="" src="" alt="" /> */}
       </div>
@@ -22,8 +22,10 @@ const NoData: React.FC<NoDataProps> = ({ col, heading, text }) => {
           col && "w-1/2"
         }`}
       >
-        <h1 className="font-[400] mb-1 text-h1-l">{heading || "No Data"}</h1>
-        <p>{text || "There is actually no data here"}</p>
+        <h1 className="font-medium mb-1 text-h3-l">{heading || "No Data"}</h1>
+        <p className={`font-normal text-body-l w-2/3 ${col && "text-left"}`}>
+          {text || "I told you no data alr rite"}
+        </p>
       </div>
     </div>
   );
