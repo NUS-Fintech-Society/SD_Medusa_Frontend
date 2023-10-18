@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Button from "../components/inputs/Button";
 import ButtonTabs from "../components/inputs/Tabs";
 import Feedback from "../components/feedback/Feedback";
 import NoData from "../components/no-data/NoData";
+import Card from "./components/card";
+import ProgressBar from "./components/progressBar";
+import Toggle from "./components/Toggle";
 
 export default function Home() {
   const data = [
@@ -240,6 +244,17 @@ export default function Home() {
             <NoData />
             <NoData col />
           </div>
+          <Card
+            imgSrc={"/images/black-fintech-logo.png"}
+            imgAlt={"tmp"}
+            header={"Generic Header"}
+            desc={"I love fintech Society"}
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <ProgressBar completion={19} />
+          <Toggle />
         </div>
       </div>
     </div>
