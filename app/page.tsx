@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
-import WithSubnavigation from "../components/navbar/NavBar";
-import Button from "../components/inputs/Button";
+import WithSubnavigation from "./components/navbar/NavBar";
+import Button from "./components/inputs/Button";
 import { ChevronRightIcon, Icon } from '@chakra-ui/icons'
 
 export default function Home() {
@@ -21,12 +21,13 @@ export default function Home() {
 
             <div className="flex flex-col grow min-w-full md:flex-row">
                 <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-black md:w-1/2">
+                    <p className="text-right relative bottom-[3.50rem] text-ftnal-white text-body-s transition-colors hover:cursor-pointer hover:text-ftnal-lightgrey md:text-body-l">User Guides</p>
                     <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">Crypto Fraud Detection <Icon className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" as={ChevronRightIcon} /></p>
                     <p className="text-ftnal-white text-body-s md:text-body-l">Brief Description</p>
                 </div>
-                <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2">
+                <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2 transition-colors">
+                    <p className="text-right relative bottom-[3.50rem] text-ftnal-white text-body-s hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors md:text-body-l">User Guides</p>
                     <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">News Headline Sentiment <Icon className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" as={ChevronRightIcon} /></p>
-                    
                     <p className="text-ftnal-white text-body-s md:text-body-l">Brief Description</p>
                 </div>
             </div>
