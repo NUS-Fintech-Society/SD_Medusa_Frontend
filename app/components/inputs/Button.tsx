@@ -36,8 +36,8 @@ const Button: React.FC<PriorityButtonProps> = ({
                       flex
                       justify-center
                       rounded-xl
-                      px-12
-                      py-4
+                      px-6
+                      py-2
                       text-body-l
                       shadow-xl
                       font-semibold
@@ -46,6 +46,10 @@ const Button: React.FC<PriorityButtonProps> = ({
                       focus-visible:outline
                       focus-visible:outline-2
                       focus-visible:outline-offset-2
+
+                      md:px-6
+                      md:py-2
+                      md:text-body-l
                   `,
             disabled && "bg-ftnal-lightgrey text-ftnalgrey cursor-default",
             fullWidth && "w-full",
