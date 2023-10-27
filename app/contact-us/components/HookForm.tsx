@@ -49,7 +49,7 @@ export default function HookForm() {
           />
         </FormControl>
         <div className="w-[138px] h-[28px] text-[13px]">
-          <Button colour="brand-yellow-black">Read More</Button>
+          <Button colour="brand-yellow-black">Send Message</Button>
         </div>
       </form>
     </div>

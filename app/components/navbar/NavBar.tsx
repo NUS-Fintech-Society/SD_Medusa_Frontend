@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Box,
@@ -17,13 +17,14 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import Image from "next/image";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <div>
-      <div className="bg-brand-blue shadow-xl text-ftnal-white min-h-[4rem] py-2 px-4 -b flex items-center md:justify-between">
+      <div className="bg-brand-blue shadow-xl text-ftnal-white min-h-[4rem] py-2 px-4 flex items-center md:justify-between">
         <div className="flex-1 md:flex-auto ml-[-0.5rem] md:hidden">
           <button
             onClick={onToggle}
@@ -37,7 +38,13 @@ export default function WithSubnavigation() {
             )}
           </button>
         </div>
-        <p className="text-center font-heading justify-center">Logo</p>
+        <Image
+          alt="Fintech Society Logo"
+          height="80"
+          width="80"
+          src="/images/white-fintech-logo-cropped.png"
+          className="h-[50px] md:h-[60px] mx-0 w-auto"
+        />
 
         <div className="hidden md:flex md:items-start ml-10 justify-center">
           <DesktopNav />
