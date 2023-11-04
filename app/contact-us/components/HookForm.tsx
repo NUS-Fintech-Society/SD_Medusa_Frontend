@@ -1,5 +1,3 @@
-import { useForm } from "react-hook-form";
-import { FormControl, Input } from "@chakra-ui/react";
 import Button from "../../components/inputs/SmallButton";
 
 export default function HookForm() {
