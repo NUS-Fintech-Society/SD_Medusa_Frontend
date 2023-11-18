@@ -62,11 +62,6 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const handleLoginClick = (href : string) => {
-    // Redirect the user to the specified URL
-    console.log('Clicked! Redirecting to:', href);
-    window.location.href = href;
-  };
   return (
     <div className="flex flex-row space-x-4">
       {NAV_ITEMS.map((navItem) => (
@@ -80,9 +75,7 @@ const DesktopNav = () => {
                 as="a"
                 className="p-2 text-sm tracking-wider hover:cursor-pointer transition-colors duration-300 hover:no-underline"
               >
-                <a onClick={() => navItem.href != undefined ? handleLoginClick(navItem.href) : undefined}>
                 {navItem.label}
-                </a>
               </Box>
             </PopoverTrigger>
 
@@ -106,7 +99,6 @@ const DesktopNav = () => {
 };
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
-
   return (
     <a
       role="group"
@@ -233,6 +225,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Login",
-    href: "https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=2tkj9j3hmteh3r0hvgcfiqqmis&response_type=code&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost:3000",
+    href: "#",
   },
 ];
