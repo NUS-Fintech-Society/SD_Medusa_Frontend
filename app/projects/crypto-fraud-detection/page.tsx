@@ -1,4 +1,3 @@
-import EmptyState from "./components/EmptyState";
 
 const Projects = () => {
   return (
