@@ -38,6 +38,7 @@ export default function WithSubnavigation() {
             )}
           </button>
         </div>
+        <a href="/">
         <Image
           alt="Fintech Society Logo"
           height="80"
@@ -45,6 +46,7 @@ export default function WithSubnavigation() {
           src="/images/white-fintech-logo-cropped.png"
           className="h-[50px] md:h-[60px] mx-0 w-auto"
         />
+        </a>
 
         <div className="hidden md:flex md:items-start ml-10 justify-center">
           <DesktopNav />
@@ -73,6 +75,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Box
                 as="a"
+                href={navItem.href}
                 className="p-2 text-sm tracking-wider hover:cursor-pointer transition-colors duration-300 hover:no-underline"
               >
                 {navItem.label}
@@ -203,28 +206,30 @@ interface NavItem {
   href?: string;
 }
 
+const redirect_uri = "http%3A%2F%2Flocalhost"
+
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Contact Us",
-    href: "#",
+    href: "/contact-us",
   },
   {
     label: "Projects",
     children: [
       {
-        label: "Machine Learning",
+        label: "Crypto Fraud Detection",
         subLabel: "A project description here",
-        href: "#",
+        href: "/projects/crypto-fraud-detection",
       },
       {
-        label: "Blockchain",
+        label: "News Sentiment Analysis",
         subLabel: "A project description",
-        href: "#",
+        href: "/projects/news-sentiment-analysis",
       },
     ],
   },
   {
     label: "Login",
-    href: "#",
+    href: "https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=2tkj9j3hmteh3r0hvgcfiqqmis&response_type=code&scope=email+openid+profile&redirect_uri=" + redirect_uri,
   },
 ];
