@@ -206,7 +206,7 @@ interface NavItem {
   href?: string;
 }
 
-const redirect_uri = "http%3A%2F%2Flocalhost"
+const redirect_uri = "http%3A%2F%2Flocalhost:3000"
 
 const NAV_ITEMS: Array<NavItem> = [
   {
