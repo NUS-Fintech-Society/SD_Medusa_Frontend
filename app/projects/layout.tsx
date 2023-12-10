@@ -1,7 +1,6 @@
 import React from "react";
 
-import DesktopSidebar from "../components/sidebar/DesktopSidebar";
-import Sidebar from "../components/sidebar/Sidebar";
+import WithSubnavigation from "../components/navbar/NavBar";
 
 export default async function ProjectsLayout({
     children
@@ -14,10 +13,8 @@ export default async function ProjectsLayout({
                 h-full
             "
         >
-            <DesktopSidebar />
-            <Sidebar>
+            <WithSubnavigation/>
                 {children}
-            </Sidebar>
         </div>
     )
 }
