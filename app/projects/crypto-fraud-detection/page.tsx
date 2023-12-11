@@ -1,54 +1,76 @@
 "use client";
-import WithSubnavigation from "../../components/navbar/NavBar";
+import { useState } from "react";
 import Features from "./components/Features";
 import FraudAddress from "./components/FraudAddress";
 import Guide from "./components/Guide";
 import SearchInput from "./components/SearchInput";
+import Model from "./components/Model";
 
 export default function Home() {
+  const [show, setShow] = useState({
+    address: true,
+    features: false,
+    model: false,
+  });
+
   return (
-    <>
-      <WithSubnavigation />
-      <div className="bg-brand-blue h-fit text-white max-w-screen-2xl overflow-hidden pb-10">
-        <Guide />
-        <SearchInput />
-        <div className="flex flex-col mt-12 relative left-[12rem]">
-          <FraudAddress />
-          <Features />
-          <h1 className="text-brand-yellow text-h2-s mt-12">
-            3. Model Explanability (Top 3)
-          </h1>
-          <span className="mt-2">
-            Please refresh page if image isn’t loading
-          </span>
-          <div className="flex flex-col w-2/3">
-            <div className="text-h4-s text-left relative left-[24rem]">
-              <h1 className="underline">Local explanation for class</h1>
-              <h1>Red: Indicates fraud</h1>
-              <h1>Green: Indicates not fraud</h1>
-            </div>
-            <div className="grid grid-rows-2 text-right mt-5 w-4/5">
-              <div className="flex items-center h-16">
-                <h1 className="p-2 pr-5 w-1/3">
-                  {"unique_received_from <= 1.00"}
-                </h1>
-                <div className="bg-white border-black border w-[30%] h-16"></div>
-                <div className="bg-accent-green border-black border w-[30%] h-16"></div>
-              </div>
-              <div className="flex items-center h-16">
-                <h1 className="p-2 w-1/3 pr-5">min_ether_sent</h1>
-                <div className="bg-white border-black border w-[30%] h-16"></div>
-                <div className="bg-accent-green border-black border w-[30%] h-16"></div>
-              </div>
-              <div className="flex items-center h-16">
-                <h1 className="p-2 w-1/3 pr-5">max_ether_sent</h1>
-                <div className="bg-white border-black border w-[30%] h-16"></div>
-                <div className="bg-accent-green border-black border w-[30%] h-16"></div>
-              </div>
-            </div>
+    <div className="bg-brand-blue text-white min-h-screen min-w-screen overflow-x-hidden pb-10 flex flex-col justify-center">
+      <Guide />
+      <SearchInput />
+      <div className="w-3/4 mx-auto flex flex-col mt-16 justify-center items-start">
+        <div className="text-h2-s text-center bg-[#323B64] w-full rounded-lg p-2 px-4">
+          <div className="flex flex-row align-center justify-start w-full">
+            <span
+              className={`border-r-[1px] px-10 cursor-pointer ${
+                show.address && "text-brand-yellow"
+              }`}
+              onClick={() =>
+                setShow({
+                  address: true,
+                  features: false,
+                  model: false,
+                })
+              }
+            >
+              Is address Fraud?
+            </span>
+            <span
+              className={`border-r-[1px] px-10 cursor-pointer ${
+                show.features && "text-brand-yellow"
+              }`}
+              onClick={() =>
+                setShow({
+                  address: false,
+                  features: true,
+                  model: false,
+                })
+              }
+            >
+              Features (Top 3)
+            </span>
+            <span
+              className={`px-10 cursor-pointer ${
+                show.model && "text-brand-yellow"
+              }`}
+              onClick={() =>
+                setShow({
+                  address: false,
+                  features: false,
+                  model: true,
+                })
+              }
+            >
+              Model Explanability (Top 3)
+            </span>
+          </div>
+          <hr className="w-full mt-2" />
+          <div className="my-10 mb-14">
+            {show.address && <FraudAddress />}
+            {show.features && <Features />}
+            {show.model && <Model />}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

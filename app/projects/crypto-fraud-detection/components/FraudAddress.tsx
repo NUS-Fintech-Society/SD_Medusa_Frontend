@@ -2,13 +2,14 @@ import { AiOutlineCheckSquare } from "react-icons/ai";
 
 const FraudAddress = () => {
   return (
-    <>
-      <h1 className="text-brand-yellow text-h2-s">1. Is fraud address?</h1>
-      <h1 className="text-accent-green text-h3-s mt-5">
-        Prediction - Not Fraud
-      </h1>
-      <div className="flex mt-5 space-x-5">
-        <div>
+    <div className="flex justify-center items-center space-x-20">
+      <div className="text-accent-green mt-5 text-left">
+        <div className="text-body-l">Prediction: </div>
+        <div className="text-h1-l">Not Fraud</div>
+      </div>
+      <div className="flex flex-col mt-5">
+        <div className="flex flex-row items-center space-x-8">
+          <div className="text-h2-s w-24">0.10186</div>
           <div className="text-[0.9375rem] flex items-center space-x-2">
             <span>Fraud Probability</span>
             <AiOutlineCheckSquare
@@ -16,9 +17,9 @@ const FraudAddress = () => {
               size={16}
             />
           </div>
-          <span className="text-h2-s">0.10186</span>
         </div>
-        <div>
+        <div className="flex flex-row items-center space-x-8">
+          <div className="text-h2-s w-24">0.89814</div>
           <div className="text-[0.9375rem] flex items-center space-x-2">
             <span>Not Fraud Probability</span>
             <AiOutlineCheckSquare
@@ -26,10 +27,9 @@ const FraudAddress = () => {
               size={16}
             />
           </div>
-          <span className="text-h2-s">0.89814</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
