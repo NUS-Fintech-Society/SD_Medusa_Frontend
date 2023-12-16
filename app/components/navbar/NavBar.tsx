@@ -207,6 +207,7 @@ interface NavItem {
 }
 
 const redirect_uri = "http%3A%2F%2Flocalhost:3000"
+const client_id = "565vgvqdj4rkoj2o5cb95u9thn"
 
 const NAV_ITEMS: Array<NavItem> = [
   {
@@ -230,6 +231,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Login",
-    href: "https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=2tkj9j3hmteh3r0hvgcfiqqmis&response_type=code&scope=email+openid+profile&redirect_uri=" + redirect_uri,
+    href: `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
   },
 ];
