@@ -1,15 +1,10 @@
 "use client";
 
-import StockCarousel from "./StockCarousell";
 import { useState } from "react";
 import { SampleStockData } from "@/data/SampleStockData";
-
-export interface StockData {
-  Name: string;
-  Link: string;
-  Time: string;
-  Score: number;
-}
+import StockSelect from "./StockSelect";
+import { StockData } from "@/types/StockData";
+import StockGrid from "./StockGrid";
 
 export interface StockDataProps {
   [stockTicker: string]: StockData[];
@@ -20,14 +15,13 @@ function StockDropdown({ stockDataProps }: { stockDataProps: StockDataProps }) {
   const [selectedTicker, setSelectedTicker] = useState("");
   const [selectedData, setSelectedData] = useState<StockData[]>([]); // State to store the selected data
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = event.target.value;
-    setSelectedTicker(selectedValue);
-    console.log(selectedData);
+  const handleSelectTicker = (newTicker: string) => {
+    // Call setSelected to update the state
+    setSelectedTicker(newTicker);
 
     // Retrieve the data based on the selected ticker
-    if (selectedValue in SampleStockData) {
-      setSelectedData(SampleStockData[selectedValue]);
+    if (newTicker in SampleStockData) {
+      setSelectedData(SampleStockData[newTicker]);
     } else {
       setSelectedData([]); // Reset the data if the ticker is not found
     }
@@ -35,30 +29,11 @@ function StockDropdown({ stockDataProps }: { stockDataProps: StockDataProps }) {
 
   return (
     <>
-      <div className="m-4 w-3/4 lg:1/2">
-        <select
-          onChange={handleChange}
-          value={selectedTicker}
-          className="h-10 md:h-12 w-full bg-ftnal-darkgrey text-ftnal-white rounded border-r-8 border-transparent px-4 text-sm outline outline-neutral-700"
-        >
-          <option
-            value=""
-            disabled
-          >
-            Select a stock ticker
-          </option>
-          {stockTickers.map((ticker) => (
-            <option
-              key={ticker}
-              value={ticker}
-            >
-              {ticker}
-            </option>
-          ))}
-        </select>
+      <div className="m-4 w-3/4 lg:w-4/5 flex justify-center z-10">
+        <StockSelect stockTickerList={stockTickers} setTicker={handleSelectTicker}/>
       </div>
       {selectedData.length > 0 && (
-        <StockCarousel key={selectedTicker} stockDataListProps={selectedData}/>
+        <StockGrid key={selectedTicker} stockDataListProps={selectedData}/>
       )}
     </>
   );
