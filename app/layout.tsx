@@ -1,9 +1,14 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { DM_Sans } from "next/font/google";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
-const dmsans = DM_Sans({ weight: ["500", "400"], subsets: ["latin"], variable: '--font-dmsans', });
+const dmsans = DM_Sans({
+  weight: ["500", "400"],
+  subsets: ["latin"],
+  variable: "--font-dmsans",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${dmsans.variable}`}>{children}</body>
+      <body className={`${dmsans.variable}`}>
+        <AuthContextProvider>{children}</AuthContextProvider>
+      </body>
     </html>
   );
 }
