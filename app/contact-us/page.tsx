@@ -1,4 +1,3 @@
-"use client";
 import WithSubnavigation from "../components/navbar/NavBar";
 import ContactCard from "./components/ContactCard";
 import HookForm from "./components/HookForm";

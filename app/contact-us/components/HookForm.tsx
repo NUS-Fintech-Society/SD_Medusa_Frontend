@@ -1,6 +1,10 @@
+"use client";
 import Button from "../../components/inputs/SmallButton";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function HookForm() {
+  const { isLoggedIn, userInfo } = useAuthContext();
+
   return (
     <div className="w-[1006px] h-[399px] text-[24px] font-normal rounded-[20px] bg-white">
       <form
@@ -16,6 +20,7 @@ export default function HookForm() {
             placeholder="Full Name"
             className="bg-[#E8E7E7] rounded-[10px] w-[434px] h-full outline-none pl-[20px] caret-black "
             required
+            defaultValue={isLoggedIn ? userInfo.username! : ""}
           />
           <input
             type="email"
@@ -23,6 +28,7 @@ export default function HookForm() {
             placeholder="Email Address"
             className="bg-[#E8E7E7] rounded-[10px] w-[434px] h-full outline-none pl-[20px] caret-black"
             required
+            defaultValue={isLoggedIn ? userInfo.email! : ""}
           />
         </div>
         <input

@@ -18,9 +18,11 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const router = useRouter();
 
   return (
     <div>
@@ -39,13 +41,13 @@ export default function WithSubnavigation() {
           </button>
         </div>
         <a href="/">
-        <Image
-          alt="Fintech Society Logo"
-          height="80"
-          width="80"
-          src="/images/white-fintech-logo-cropped.png"
-          className="h-[50px] md:h-[60px] mx-0 w-auto"
-        />
+          <Image
+            alt="Fintech Society Logo"
+            height="80"
+            width="80"
+            src="/images/white-fintech-logo-cropped.png"
+            className="h-[50px] md:h-[60px] mx-0 w-auto"
+          />
         </a>
 
         <div className="hidden md:flex md:items-start ml-10 justify-center">
@@ -64,6 +66,7 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-row space-x-4 z-20">
       {NAV_ITEMS.map((navItem) => (
@@ -75,7 +78,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Box
                 as="a"
-                href={navItem.href}
+                onClick={() => router.push(navItem.href || "/")}
                 className="p-2 text-sm tracking-wider hover:cursor-pointer transition-colors duration-300 hover:no-underline"
               >
                 {navItem.label}
@@ -206,8 +209,8 @@ interface NavItem {
   href?: string;
 }
 
-const redirect_uri = "http%3A%2F%2Flocalhost:3000"
-const client_id = "565vgvqdj4rkoj2o5cb95u9thn"
+const redirect_uri = "http%3A%2F%2Flocalhost:3000/";
+const client_id = "565vgvqdj4rkoj2o5cb95u9thn";
 
 const NAV_ITEMS: Array<NavItem> = [
   {
