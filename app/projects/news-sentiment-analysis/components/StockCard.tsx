@@ -1,25 +1,31 @@
-import { Box, Link, VStack } from "@chakra-ui/react";
-import { StockData } from "./StockDropdown";
+import { Box, HStack, Link, VStack } from "@chakra-ui/react";
+import { StockData } from "../../../../types/StockData";
 
 function StockCard({ stockData }: { stockData: StockData }) {
+  let borderColorClass;
+
+  if (stockData.Score < 0) {
+    borderColorClass = 'border-t-[1rem] border-accent-red';
+  } else if (stockData.Score > 0) {
+    borderColorClass = 'border-t-[1rem] border-accent-green';
+  } else {
+    borderColorClass = 'border-t-[1rem] border-ftnal-lightgrey';
+  }
   return (
-    <div className="flex flex-row justify-between border-b border-gray-200 p-4">
-      <VStack
-        align="start"
-        spacing={2}
-      >
+    <div className={`w-full flex flex-row justify-between p-5 lg:p-5 lg:w-1/3 rounded-lg bg-ftnal-white border-t-[1rem] ${borderColorClass} bg-ftnal-white`}>
+      <HStack>
+        <VStack className="w-1/2 lg:w-1/3">
+          <p className="text-brand-yellow text-body-s lg:text-h3-l text-center">{stockData.Date}</p>
+          <p className="text-brand-yellow text-body-s lg:text-h4-s">{stockData.Time}</p>
+        </VStack>
         <Link
           href={stockData.Link}
-          className="text-left text-body-s text-ftnal-white underline md:text-body-l"
+          className="px-2 text-center text-body-s text-ftnal-black underline md:text-h4-s w-3/4"
           isExternal
         >
           {stockData.Name}
         </Link>
-        <p className="text-ftnal-white text-body-s">{stockData.Time}</p>
-      </VStack>
-      <div className="w-8 h-8 md:w-12 md:h-12 text-body-s md:text-body-l bg-brand-yellow rounded-md flex items-center justify-center">
-        {stockData.Score}
-      </div>
+      </HStack>
     </div>
   );
 }
