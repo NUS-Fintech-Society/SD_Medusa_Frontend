@@ -68,7 +68,7 @@ export default function WithSubnavigation() {
 const DesktopNav = () => {
   const router = useRouter();
   return (
-    <div className="flex flex-row space-x-4">
+    <div className="flex flex-row space-x-4 z-20">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover
