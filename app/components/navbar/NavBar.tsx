@@ -209,8 +209,8 @@ interface NavItem {
   href?: string;
 }
 
-const redirect_uri = "http%3A%2F%2Flocalhost:3000/";
-const client_id = "565vgvqdj4rkoj2o5cb95u9thn";
+const redirect_uri = process.env.REDIRECT_URI;
+const client_id = process.env.CLIENT_ID;
 
 const NAV_ITEMS: Array<NavItem> = [
   {
