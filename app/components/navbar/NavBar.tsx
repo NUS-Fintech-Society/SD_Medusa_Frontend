@@ -209,8 +209,9 @@ interface NavItem {
   href?: string;
 }
 
-const redirect_uri = process.env.REDIRECT_URI;
-const client_id = process.env.CLIENT_ID;
+const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
+const client_id = process.env.NEXT_PUBLIC_CLIENT_ID;
+
 
 const NAV_ITEMS: Array<NavItem> = [
   {
