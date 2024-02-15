@@ -5,7 +5,7 @@ import { ChevronRightIcon, Icon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
-import { useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "./context/AuthContext"; 
 
 export default function Home() {
   const [idToken, setIdToken] = useState<string | null>(null);
