@@ -81,7 +81,7 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
-                Brief Description
+                An application whereby users can check whether an address is a potential fraudulent one before making the irreversible decision of sending crypto over to that address.
               </p>
             </div>
             <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2 transition-colors">
@@ -98,7 +98,7 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
-                Brief Description
+                An application to explore how the sentiment of news articles on certain stocks can impact their performance across different time horizons.
               </p>
             </div>
           </div>
