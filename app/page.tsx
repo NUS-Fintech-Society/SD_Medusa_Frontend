@@ -71,7 +71,6 @@ export default function Home() {
                 User Guides
               </p>
               <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
-                
                 <a href="/projects/crypto-fraud-detection">
                 Crypto Fraud Detection{" "}
                   <Icon
@@ -89,8 +88,8 @@ export default function Home() {
                 User Guides
               </p>
               <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
-                News Headline Sentiment{" "}
                 <a href="/projects/news-sentiment-analysis">
+                News Headline Sentiment{" "}
                   <Icon
                     className="relative w-5 h-5 group-hover:translate-x-1 transition-transform"
                     as={ChevronRightIcon}
