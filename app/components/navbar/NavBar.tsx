@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -212,8 +213,10 @@ interface NavItem {
 const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
 const client_id = process.env.NEXT_PUBLIC_CLIENT_ID;
 
+const { isLoggedIn, userInfo } = useAuthContext();
 
 const NAV_ITEMS: Array<NavItem> = [
+  
   {
     label: "Contact Us",
     href: "/contact-us",
@@ -234,7 +237,7 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Login",
+    label: isLoggedIn ? `Hello, ${userInfo.username}` : "Login",
     href: `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
   },
 ];
