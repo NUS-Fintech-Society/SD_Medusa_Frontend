@@ -69,15 +69,6 @@ export default function WithSubnavigation() {
 const DesktopNav = () => {
   const router = useRouter();
   const { isLoggedIn, userInfo } = useAuthContext();
-  // function getLoginLabel(isLoggedIn, userInfo) {
-  //   return isLoggedIn ? `Hello, ${userInfo.username}` : 'Login';
-  // }
-  
-  // // Component to display the login label
-  // function LoginLabel() {
-    
-  //   return getLoginLabel(isLoggedIn, userInfo);
-  // }
 
   const NAV_ITEMS: Array<NavItem> = [
   
@@ -102,7 +93,7 @@ const DesktopNav = () => {
     },
     {
       label: isLoggedIn ? `Hello, ${userInfo.username}` : 'Login',
-      href: `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
+      href: isLoggedIn ? "" : `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
     },
   ];
 
@@ -252,15 +243,6 @@ interface NavItem {
 const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
 const client_id = process.env.NEXT_PUBLIC_CLIENT_ID;
 
-
-// function LoginLabel() {
-//   
-//   const getLoginLabel = () => { 
-//     return isLoggedIn ? `Hello, ${userInfo.username}` : 'Login';
-//   };
-
-//   return getLoginLabel();
-// }
 
 
 
