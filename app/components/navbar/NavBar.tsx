@@ -56,18 +56,57 @@ export default function WithSubnavigation() {
         </div>
       </div>
 
-      <Collapse
+      {/* <Collapse
         in={isOpen}
         animateOpacity
       >
         <MobileNav />
-      </Collapse>
+      </Collapse>  */}
     </div>
   );
 }
 
 const DesktopNav = () => {
   const router = useRouter();
+  const { isLoggedIn, userInfo } = useAuthContext();
+  // function getLoginLabel(isLoggedIn, userInfo) {
+  //   return isLoggedIn ? `Hello, ${userInfo.username}` : 'Login';
+  // }
+  
+  // // Component to display the login label
+  // function LoginLabel() {
+    
+  //   return getLoginLabel(isLoggedIn, userInfo);
+  // }
+
+  const NAV_ITEMS: Array<NavItem> = [
+  
+    {
+      label: "Contact Us",
+      href: "/contact-us",
+    },
+    {
+      label: "Projects",
+      children: [
+        {
+          label: "Crypto Fraud Detection",
+          subLabel: "A project description here",
+          href: "/projects/crypto-fraud-detection",
+        },
+        {
+          label: "News Sentiment Analysis",
+          subLabel: "A project description",
+          href: "/projects/news-sentiment-analysis",
+        },
+      ],
+    },
+    {
+      label: isLoggedIn ? `Hello, ${userInfo.username}` : 'Login',
+      href: `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
+    },
+  ];
+
+
   return (
     <div className="flex flex-row space-x-4 z-20">
       {NAV_ITEMS.map((navItem) => (
@@ -139,69 +178,69 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   );
 };
 
-const MobileNav = () => {
-  return (
-    <Stack className="md:hidden bg-brand-yellow p-4 ">
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem
-          key={navItem.label}
-          {...navItem}
-        />
-      ))}
-    </Stack>
-  );
-};
+// const MobileNav = () => {
+//   return (
+//     <Stack className="md:hidden bg-brand-yellow p-4 ">
+//       {NAV_ITEMS.map((navItem) => (
+//         <MobileNavItem
+//           key={navItem.label}
+//           {...navItem}
+//         />
+//       ))}
+//     </Stack>
+//   );
+// };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-  const { isOpen, onToggle } = useDisclosure();
+// const MobileNavItem = ({ label, children, href }: NavItem) => {
+//   const { isOpen, onToggle } = useDisclosure();
 
-  return (
-    <Stack
-      className="bg-brand-yellow"
-      spacing={4}
-      onClick={children && onToggle}
-    >
-      <Box
-        className="bg-brand-yellow py-2 flex flex-row items-center"
-        as="a"
-        href={href ?? "#"}
-        _hover={{
-          textDecoration: "none",
-        }}
-      >
-        <p className="font-bold text-ftnal-white">{label}</p>
-        {children && (
-          <Icon
-            as={ChevronDownIcon}
-            color="white"
-            transform={isOpen ? "rotate(180deg)" : ""}
-            className="w-6 h-6 transition-all"
-          />
-        )}
-      </Box>
+//   return (
+//     <Stack
+//       className="bg-brand-yellow"
+//       spacing={4}
+//       onClick={children && onToggle}
+//     >
+//       <Box
+//         className="bg-brand-yellow py-2 flex flex-row items-center"
+//         as="a"
+//         href={href ?? "#"}
+//         _hover={{
+//           textDecoration: "none",
+//         }}
+//       >
+//         <p className="font-bold text-ftnal-white">{label}</p>
+//         {children && (
+//           <Icon
+//             as={ChevronDownIcon}
+//             color="white"
+//             transform={isOpen ? "rotate(180deg)" : ""}
+//             className="w-6 h-6 transition-all"
+//           />
+//         )}
+//       </Box>
 
-      <Collapse
-        in={isOpen}
-        animateOpacity
-        style={{ marginTop: "0!important" }}
-      >
-        <Stack className="mt-2 pl-4 align-start border-l-2 border-l-white">
-          {children &&
-            children.map((child) => (
-              <Box
-                as="a"
-                key={child.label}
-                href={child.href}
-                className="py-2 text-ftnal-white text-dmsans text-body-l"
-              >
-                {child.label}
-              </Box>
-            ))}
-        </Stack>
-      </Collapse>
-    </Stack>
-  );
-};
+//       <Collapse
+//         in={isOpen}
+//         animateOpacity
+//         style={{ marginTop: "0!important" }}
+//       >
+//         <Stack className="mt-2 pl-4 align-start border-l-2 border-l-white">
+//           {children &&
+//             children.map((child) => (
+//               <Box
+//                 as="a"
+//                 key={child.label}
+//                 href={child.href}
+//                 className="py-2 text-ftnal-white text-dmsans text-body-l"
+//               >
+//                 {child.label}
+//               </Box>
+//             ))}
+//         </Stack>
+//       </Collapse>
+//     </Stack>
+//   );
+// };
 
 interface NavItem {
   label: string;
@@ -213,31 +252,16 @@ interface NavItem {
 const redirect_uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
 const client_id = process.env.NEXT_PUBLIC_CLIENT_ID;
 
-const { isLoggedIn, userInfo } = useAuthContext();
 
-const NAV_ITEMS: Array<NavItem> = [
-  
-  {
-    label: "Contact Us",
-    href: "/contact-us",
-  },
-  {
-    label: "Projects",
-    children: [
-      {
-        label: "Crypto Fraud Detection",
-        subLabel: "A project description here",
-        href: "/projects/crypto-fraud-detection",
-      },
-      {
-        label: "News Sentiment Analysis",
-        subLabel: "A project description",
-        href: "/projects/news-sentiment-analysis",
-      },
-    ],
-  },
-  {
-    label: isLoggedIn ? `Hello, ${userInfo.username}` : "Login",
-    href: `https://medusa.auth.ap-southeast-1.amazoncognito.com/login?client_id=${client_id}&response_type=token&scope=email+openid+profile&redirect_uri=${redirect_uri}`,
-  },
-];
+// function LoginLabel() {
+//   
+//   const getLoginLabel = () => { 
+//     return isLoggedIn ? `Hello, ${userInfo.username}` : 'Login';
+//   };
+
+//   return getLoginLabel();
+// }
+
+
+
+
