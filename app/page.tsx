@@ -48,6 +48,7 @@ export default function Home() {
     <>
       <WithSubnavigation />
       <div className="flex flex-col h-[calc(100vh-4rem)] min-w-screen">
+
         <div className="flex sm:flex-row flex-col">
           <div className="flex flex-1">
             <div className="flex flex-col min-w-full bg-ftnal-grey px-4 md:px-12 py-12 md:pt-24 md:pb-16">
@@ -72,6 +73,7 @@ export default function Home() {
                 className="md:w-[800px] md:h-[390px]"
             />
           </div>
+
         </div>
 
         <div className="flex flex-col grow min-w-full">
@@ -87,8 +89,8 @@ export default function Home() {
                 User Guides
               </p>
               <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
-                Crypto Fraud Detection{" "}
                 <a href="/projects/crypto-fraud-detection">
+                Crypto Fraud Detection{" "}
                   <Icon
                     className="relative w-5 h-5 group-hover:translate-x-1 transition-transform"
                     as={ChevronRightIcon}
@@ -96,7 +98,9 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
+
                 An application whereby users can check whether an address is a potential fraudulent one before making the irreversible decision of sending crypto over to that address.
+
               </p>
 
             </div>
@@ -105,17 +109,22 @@ export default function Home() {
               <p className="text-right relative bottom-[3.50rem] text-black text-body-s hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors md:text-body-l">
                 User Guides
               </p>
+
               <p className="group text-black text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
                 News Headline Sentiment{" "}
+
                 <a href="/projects/news-sentiment-analysis">
+                News Headline Sentiment{" "}
                   <Icon
                     className="relative w-5 h-5 group-hover:translate-x-1 transition-transform"
                     as={ChevronRightIcon}
                   />
                 </a>
               </p>
+
               <p className="text-black text-body-s md:text-body-l">
                 An application to explore how the sentiment of news articles on certain stocks can impact their performance across different time horizons.
+
               </p>
             </div>
           </div>
