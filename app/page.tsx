@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { useAuthContext } from "./context/AuthContext"; 
+import Image from "next/image";
 
 export default function Home() {
   const [idToken, setIdToken] = useState<string | null>(null);
@@ -47,17 +48,34 @@ export default function Home() {
     <>
       <WithSubnavigation />
       <div className="flex flex-col h-[calc(100vh-4rem)] min-w-screen">
-        <div className="flex flex-col min-w-full bg-ftnal-grey px-8 md:px-36 py-14 md:pt-28 md:pb-20">
-          <p className="text-h2-l md:text-h1-l text-brand-yellow tracking-wide">
-            About NFS and MEDUSA
-          </p>
-          <p className="text-body-s mb-5 md:mb-10 md:text-body-l text-ftnal-black tracking-wide">
-          Medusa was developed to address a fundamental challenge: making NUS Fintech Society’s 
-          diverse range of projects, particularly in machine learning and blockchain, 
-          available to any interested party in an integrated platform.{" "}
-          </p>
-          <Button colour="brand-yellow">Read More</Button>
+
+        <div className="flex sm:flex-row flex-col">
+          <div className="flex flex-1">
+            <div className="flex flex-col min-w-full bg-ftnal-grey px-4 md:px-12 py-12 md:pt-24 md:pb-16">
+              <p className="text-h2-l md:text-h1-l text-brand-yellow tracking-wide text-left">
+                About NFS and MEDUSA
+              </p>
+              <p className="text-body-s mb-5 md:mb-10 md:text-body-l text-ftnal-black tracking-wide text-left">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat.{" "}
+              </p>
+              <Button colour="brand-yellow">Read More</Button>
+            </div>
+          </div>
+          <div className="flex-1 flex items-center ">
+            <Image
+                alt="About Us Image"
+                height="200"
+                width="900"
+                src="/images/about-nfs.png"
+                className="md:w-[800px] md:h-[390px]"
+            />
+          </div>
+
         </div>
+
         <div className="flex flex-col grow min-w-full">
           <div className="flex min-h-[3rem] bg-brand-blue justify-center items-center">
             <p className="text-ftnal-white text-h3-s tracking-wide">
@@ -66,7 +84,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col grow min-w-full md:flex-row">
-            <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-black md:w-1/2">
+            <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-black md:w-1/2 bg-[url('/images/crypto-fraud-detection.png')] bg-cover">
               <p className="text-right relative bottom-[3.50rem] text-ftnal-white text-body-s transition-colors hover:cursor-pointer hover:text-ftnal-lightgrey md:text-body-l">
                 User Guides
               </p>
@@ -80,15 +98,21 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
-              An application whereby users can check whether an address is a potential fraudulent 
-              one before making the irreversible decision of sending crypto over to that address.
+
+                An application whereby users can check whether an address is a potential fraudulent one before making the irreversible decision of sending crypto over to that address.
+
               </p>
+
             </div>
-            <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2 transition-colors">
-              <p className="text-right relative bottom-[3.50rem] text-ftnal-white text-body-s hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors md:text-body-l">
+  
+            <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2 transition-colors bg-[url('/images/news-headline-sentiment.png')] bg-cover bg-no-repeat">
+              <p className="text-right relative bottom-[3.50rem] text-black text-body-s hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors md:text-body-l">
                 User Guides
               </p>
-              <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
+
+              <p className="group text-black text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
+                News Headline Sentiment{" "}
+
                 <a href="/projects/news-sentiment-analysis">
                 News Headline Sentiment{" "}
                   <Icon
@@ -97,9 +121,10 @@ export default function Home() {
                   />
                 </a>
               </p>
-              <p className="text-ftnal-white text-body-s md:text-body-l">
-              An application to explore how the sentiment of news articles on certain stocks 
-              can impact their performance across different time horizons.
+
+              <p className="text-black text-body-s md:text-body-l">
+                An application to explore how the sentiment of news articles on certain stocks can impact their performance across different time horizons.
+
               </p>
             </div>
           </div>
