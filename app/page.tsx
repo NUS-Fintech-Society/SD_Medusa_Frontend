@@ -52,10 +52,9 @@ export default function Home() {
             About NFS and MEDUSA
           </p>
           <p className="text-body-s mb-5 md:mb-10 md:text-body-l text-ftnal-black tracking-wide">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.{" "}
+          Medusa was developed to address a fundamental challenge: making NUS Fintech Society’s 
+          diverse range of projects, particularly in machine learning and blockchain, 
+          available to any interested party in an integrated platform.{" "}
           </p>
           <Button colour="brand-yellow">Read More</Button>
         </div>
@@ -72,8 +71,8 @@ export default function Home() {
                 User Guides
               </p>
               <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
-                Crypto Fraud Detection{" "}
                 <a href="/projects/crypto-fraud-detection">
+                Crypto Fraud Detection{" "}
                   <Icon
                     className="relative w-5 h-5 group-hover:translate-x-1 transition-transform"
                     as={ChevronRightIcon}
@@ -81,7 +80,8 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
-                Brief Description
+              An application whereby users can check whether an address is a potential fraudulent 
+              one before making the irreversible decision of sending crypto over to that address.
               </p>
             </div>
             <div className="flex flex-col grow md:min-h-full px-8 py-20 bg-ftnal-darkgrey md:w-1/2 transition-colors">
@@ -89,8 +89,8 @@ export default function Home() {
                 User Guides
               </p>
               <p className="group text-ftnal-white text-h3-s md:text-h3-l hover:cursor-pointer hover:text-ftnal-lightgrey transition-colors">
-                News Headline Sentiment{" "}
                 <a href="/projects/news-sentiment-analysis">
+                News Headline Sentiment{" "}
                   <Icon
                     className="relative w-5 h-5 group-hover:translate-x-1 transition-transform"
                     as={ChevronRightIcon}
@@ -98,7 +98,8 @@ export default function Home() {
                 </a>
               </p>
               <p className="text-ftnal-white text-body-s md:text-body-l">
-                Brief Description
+              An application to explore how the sentiment of news articles on certain stocks 
+              can impact their performance across different time horizons.
               </p>
             </div>
           </div>
