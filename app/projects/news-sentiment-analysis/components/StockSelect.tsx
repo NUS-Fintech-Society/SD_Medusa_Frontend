@@ -1,4 +1,4 @@
-import { Fragment, JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactFragment, ReactPortal, useState } from 'react'
+import { Fragment, JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useState } from 'react'
 import { Listbox, ListboxProps, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { StockDataProps } from './StockDropdown'
