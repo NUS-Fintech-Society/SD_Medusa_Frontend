@@ -44,6 +44,11 @@ export default function Home() {
     }
   }, [idToken, accessToken]);
 
+  // go to read more page
+  const handleReadMore = () => {
+    window.location.href = "/read-more";
+  };
+
   return (
     <>
       <WithSubnavigation />
@@ -61,7 +66,7 @@ export default function Home() {
                 ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                 aliquip ex ea commodo consequat.{" "}
               </p>
-              <Button colour="brand-yellow">Read More</Button>
+              <Button colour="brand-yellow" onClick={handleReadMore}>Read More</Button>
             </div>
           </div>
           <div className="flex-1 flex items-center ">
