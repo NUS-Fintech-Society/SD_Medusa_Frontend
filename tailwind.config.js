@@ -51,7 +51,7 @@ module.exports = {
     },
   },
   fontFamily: {
-    dmsans: ['var(--font-dmsans)'],
+    'dmsans': ['DM Sans'],
   },
   plugins: [],
 };
