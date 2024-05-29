@@ -4,16 +4,37 @@ import Features from "./components/Features";
 import FraudAddress from "./components/FraudAddress";
 import Guide from "./components/Guide";
 import SearchInput from "./components/SearchInput";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function Home() {
+  const [result, setResult] = useState<any>(null);
+  
+  function FetchData(query: string) {
+   
+    useEffect(() => {
+      const fetchData = async () => {
+        const response = await axios.get(`https://ysmpkqmb16.execute-api.ap-southeast-1.amazonaws.com/dev/dummy/crypto-fraud?address=${query}`)
+        setResult(response.data);
+      };
+      fetchData();
+    }, [query])
+  }
+
+  // const handleSearch = async (query: string) => {
+  //   const response = await fetch(`https://ysmpkqmb16.execute-api.ap-southeast-1.amazonaws.com/dev/dummy/crypto-fraud?address=${query}`);
+  //   const data = await response.json();
+  //   setResult(data);
+  // }
+
   return (
     <>
       <WithSubnavigation />
       <div className="bg-brand-blue h-fit text-white max-w-screen-2xl overflow-hidden pb-10">
         <Guide />
-        <SearchInput />
+        <SearchInput onSearch={FetchData}/>
         <div className="flex flex-col mt-12 relative left-[12rem]">
-          <FraudAddress />
+          <FraudAddress result = {result} />
           <Features />
           <h1 className="text-brand-yellow text-h2-s mt-12">
             3. Model Explanability (Top 3)

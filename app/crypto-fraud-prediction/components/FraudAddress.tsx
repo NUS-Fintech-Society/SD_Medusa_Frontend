@@ -1,6 +1,9 @@
 import { AiOutlineCheckSquare } from "react-icons/ai";
 
-const FraudAddress = () => {
+
+const FraudAddress= (result: any) => {
+
+  if (result) {
   return (
     <>
       <h1 className="text-brand-yellow text-h2-s">1. Is fraud address?</h1>
@@ -31,6 +34,8 @@ const FraudAddress = () => {
       </div>
     </>
   );
+  }
+  return null;
 };
 
 export default FraudAddress;
