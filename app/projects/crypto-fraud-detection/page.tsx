@@ -77,9 +77,9 @@ export default function Home() {
           </div>
           <hr className="w-full mt-2" />
           <div className="my-10 mb-14">
-            {show.address && <FraudAddress />}
+            {show.address && result && <FraudAddress prediction={result.prediction}/>}
             {show.features && result && <Features features={result.features} />}
-            {show.model && <Model />}
+            {show.model && result && <Model features={result.features} />}
           </div>
         </div>
       </div>

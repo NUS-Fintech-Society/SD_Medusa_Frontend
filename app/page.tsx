@@ -61,10 +61,8 @@ export default function Home() {
                 About NFS and MEDUSA
               </p>
               <p className="text-body-s mb-5 md:mb-10 md:text-body-l text-ftnal-black tracking-wide text-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat.{" "}
+              Medusa was developed to address a fundamental challenge: making NUS Fintech Society’s 
+              diverse range of projects, particularly in machine learning and blockchain, available to any interested party in an integrated platform.{" "}
               </p>
               <Button colour="brand-yellow" onClick={handleReadMore}>Read More</Button>
             </div>
